@@ -75,16 +75,3 @@ th, td {
   border: solid 1px #f0f0f0;
   padding: 0.5rem;
 }
-.mouse-tail {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  background-color: var(--theme-color);
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0.5;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out, opacity 0.3s ease-out;
-}
