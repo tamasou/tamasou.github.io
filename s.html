@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #ffebeb; /* 警告色を背景に */
+            background-color: #ffebeb; 
             margin: 0;
             padding: 0;
             color: #333;
@@ -18,8 +18,8 @@
             margin: 0 auto;
             padding: 20px;
             background-color: #fff;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2); /* 赤い影を追加 */
-            border: 2px solid #ff4d4d; /* 警告の境界線 */
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2); 
+            border: 2px solid #ff4d4d; 
         }
         .header {
             background-color: #e50914;
@@ -27,7 +27,7 @@
             padding: 15px;
             font-size: 1.4em;
             font-weight: bold;
-            animation: pulse 1s infinite; /* 点滅アニメーション */
+            animation: pulse 1s infinite; 
         }
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -51,12 +51,12 @@
             font-size: 1.1em;
         }
         .device-info {
-            background-color: #ffe5e5; /* 薄い赤の背景 */
+            background-color: #ffe5e5; 
             padding: 15px;
             border-left: 5px solid #ff4d4d;
             border-radius: 5px;
             margin: 20px 0;
-            animation: shake 0.5s infinite; /* 微妙な揺れアニメーション */
+            animation: shake 0.5s infinite; 
         }
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
@@ -83,7 +83,7 @@
             width: 90%;
             padding: 20px;
             margin: 20px auto;
-            background: linear-gradient(180deg, #4CAF50, #45a049); /* グラデーション */
+            background: linear-gradient(180deg, #4CAF50, #45a049); 
             color: #fff;
             text-decoration: none;
             border-radius: 8px;
@@ -91,7 +91,7 @@
             font-weight: bold;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
             position: relative;
-            animation: blink 1s infinite; /* 点滅 */
+            animation: blink 1s infinite; 
         }
         @keyframes blink {
             50% { opacity: 0.8; }
@@ -136,21 +136,18 @@
     </div>
 
     <script>
-        // 焦らせるためのJavaScript
+        
         const deviceModelElement = document.getElementById('device-model');
         const ipAddressElement = document.getElementById('ip-address');
         const ispInfoElement = document.getElementById('isp-info');
         
-        // IPアドレスとISP情報は偽物
-        ipAddressElement.textContent = '172.217.161.46'; // GoogleのIPアドレス範囲から適当に
+        ipAddressElement.textContent = '172.217.161.46'; 
         ispInfoElement.textContent = '〇〇通信';
         
-        // デバイス情報は本物
         deviceModelElement.textContent = navigator.platform;
 
-        // カウントダウンタイマー（短くして焦らせる）
         const countdownElement = document.getElementById('countdown-timer');
-        let time = 180; // 3分間
+        let time = 180; 
 
         const countdownInterval = setInterval(() => {
             const minutes = Math.floor(time / 60);
