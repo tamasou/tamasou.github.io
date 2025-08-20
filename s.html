@@ -71,4 +71,102 @@
             border-radius: 5px;
             margin: 20px 0;
             font-weight: bold;
-            border:
+            border: 2px solid #ff0000;
+        }
+        .alert-text {
+            color: #ff0000;
+            font-weight: bold;
+            margin-top: -15px;
+        }
+        .button {
+            display: block;
+            width: 90%;
+            padding: 20px;
+            margin: 20px auto;
+            background: linear-gradient(180deg, #4CAF50, #45a049); /* グラデーション */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.5em;
+            font-weight: bold;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: blink 1s infinite; /* 点滅 */
+        }
+        @keyframes blink {
+            50% { opacity: 0.8; }
+        }
+        .footer {
+            font-size: 0.9em;
+            color: #999;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        【緊急速報】このお知らせはあなたのためだけに表示されています！
+    </div>
+
+    <div class="container">
+        <h1>おめでとうございます！</h1>
+        <p>あなたが本日、<span class="highlight">特別ボーナス抽選</span>に選ばれました！</p>
+        <p>このチャンスは<span class="highlight">1回限り</span>です。</p>
+
+        <div class="device-info">
+            <p><strong>認証済み端末:</strong> <span class="highlight" id="device-model"></span></p>
+            <p><strong>IPアドレス:</strong> <span class="highlight" id="ip-address"></span></p>
+            <p><strong>プロバイダ:</strong> <span class="highlight" id="isp-info"></span></p>
+            <p>上記情報であなたを特定しました。</p>
+        </div>
+
+        <p class="alert-text">※ このページを閉じると特典は無効になります！</p>
+        <p>有効期限まで残り</p>
+        <div class="countdown" id="countdown-timer">
+            00:00:00
+        </div>
+
+        <a href="#" class="button">今すぐ特典を確定する</a>
+
+        <div class="footer">
+            <p>※本キャンペーンは、第三者への譲渡はできません。</p>
+            <p>※有効期限を過ぎると、自動的に別の方に権利が移行します。</p>
+        </div>
+    </div>
+
+    <script>
+        // 焦らせるためのJavaScript
+        const deviceModelElement = document.getElementById('device-model');
+        const ipAddressElement = document.getElementById('ip-address');
+        const ispInfoElement = document.getElementById('isp-info');
+        
+        // IPアドレスとISP情報は偽物
+        ipAddressElement.textContent = '172.217.161.46'; // GoogleのIPアドレス範囲から適当に
+        ispInfoElement.textContent = '〇〇通信';
+        
+        // デバイス情報は本物
+        deviceModelElement.textContent = navigator.platform;
+
+        // カウントダウンタイマー（短くして焦らせる）
+        const countdownElement = document.getElementById('countdown-timer');
+        let time = 180; // 3分間
+
+        const countdownInterval = setInterval(() => {
+            const minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+            
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            countdownElement.textContent = `${minutes}:${seconds}`;
+
+            if (time <= 0) {
+                clearInterval(countdownInterval);
+                countdownElement.textContent = "時間切れです";
+            }
+            time--;
+        }, 1000);
+    </script>
+
+</body>
+</html>
