@@ -9,19 +9,19 @@
     <p><span id="countdown">5</span>秒後に自動で移動します...</p>
 
     <script>
-        const redirectUrl = "https://www.example.com/countdown-page"; // 遷移先のURL
-        let timeLeft = 5; // 待機時間（秒）
+        const redirectUrl = "https://www.example.com/countdown-page"; 
+        let timeLeft = 5; 
 
         const countdownElement = document.getElementById("countdown");
 
-        // 1秒ごとにカウントダウンを更新
+       
         const countdownInterval = setInterval(() => {
             timeLeft--;
             countdownElement.textContent = timeLeft;
 
             if (timeLeft <= 0) {
-                clearInterval(countdownInterval); // カウントダウンを停止
-                window.location.href = redirectUrl; // 指定のURLに遷移
+                clearInterval(countdownInterval); 
+                window.location.href = redirectUrl; 
             }
         }, 1000);
     </script>
