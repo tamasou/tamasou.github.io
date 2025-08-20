@@ -75,3 +75,9 @@ th, td {
   border: solid 1px #f0f0f0;
   padding: 0.5rem;
 }
+
+
+.change-color:hover {
+  color: #008cff; 
+  transition: color 0.3s ease; 
+}
