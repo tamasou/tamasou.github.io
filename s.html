@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【緊急速報】おめでとうございます！</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #e50914; /* 警告をイメージさせる色 */
+            color: #fff;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .logo {
+            margin: 20px 0;
+        }
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+        h1 {
+            color: #d9534f;
+            font-size: 1.8em;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 1em;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+        .highlight {
+            color: #d9534f;
+            font-weight: bold;
+        }
+        .device-info {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .countdown {
+            background-color: #333;
+            color: #fff;
+            font-size: 2em;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .button {
+            display: block;
+            width: 80%;
+            padding: 15px;
+            margin: 20px auto;
+            background-color: #4CAF50; /* 信頼を誘う色 */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            font-size: 0.8em;
+            color: #999;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        【緊急】重要なお知らせです
+    </div>
+
+    <div class="container">
+        <h1>本日限定！特別プレゼント当選！</h1>
+        <p>日頃のご利用に感謝して、あなたに<span class="highlight">特別ボーナス</span>が当選しました！</p>
+
+        <div class="device-info">
+            <p><strong>機種情報:</strong> あなたの <span class="highlight" id="device-model">iPhone X</span></p>
+            <p><strong>IPアドレス:</strong> <span class="highlight" id="ip-address">192.168.1.1</span></p>
+            <p>上記端末の利用者様が選ばれました。</p>
+        </div>
+
+        <p>このチャンスを逃さないでください！</p>
+
+        <p>有効期限まで残り</p>
+        <div class="countdown" id="countdown-timer">
+            00:00:00
+        </div>
+
+        <a href="#" class="button">今すぐ特典を受け取る</a>
+
+        <div class="footer">
+            <p>※本キャンペーンは、第三者への譲渡はできません。</p>
+            <p>※有効期限を過ぎると無効となります。</p>
+        </div>
+    </div>
+
+    <script>
+        // 機種情報とIPアドレスは表示例です
+        document.getElementById('device-model').textContent = navigator.platform;
+        document.getElementById('ip-address').textContent = '203.0.113.1';
+
+        // カウントダウンタイマー
+        const countdownElement = document.getElementById('countdown-timer');
+        let time = 600; // 10分間
+
+        const countdownInterval = setInterval(() => {
+            const minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+            
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            countdownElement.textContent = `${minutes}:${seconds}`;
+
+            if (time <= 0) {
+                clearInterval(countdownInterval);
+                countdownElement.textContent = "時間切れです";
+            }
+            time--;
+        }, 1000);
+    </script>
+
+</body>
+</html>
